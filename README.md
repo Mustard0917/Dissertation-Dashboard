@@ -1,23 +1,36 @@
 # Dissertation-Dashboard
 GDPR and data compliance dashboard
+
 Overview
 The GDPR and Data Compliance Dashboard is designed to help organizations manage and track compliance with the General Data Protection Regulation (GDPR) and other data privacy regulations. This dashboard provides a centralized view of key compliance metrics, real-time monitoring of data processing activities, and actionable insights to ensure that your organization is in line with privacy and security standards.
 
 Features
 GDPR Compliance Status: View an overview of your organization's current GDPR compliance status, including whether key requirements such as data subject rights and data processing agreements are in place.
+
 Data Processing Activities: Track the data processing activities within your organization, including the purpose, legal basis, and categories of personal data processed.
+
 Data Subject Requests (DSRs): Monitor and manage incoming data subject requests, including access, rectification, erasure, and data portability requests.
+
 Audit Trail: Maintain a secure, immutable record of all data processing activities and compliance actions taken.
+
 Risk Management: Identify and assess data protection risks with built-in risk assessments and mitigation tracking.
+
 Reporting & Analytics: Generate compliance reports and visual analytics to track progress, identify gaps, and improve your data protection practices.
+
 Third-party Management: Monitor and manage third-party data processors and service providers to ensure they meet compliance requirements.
 Technologies Used
+
 Frontend: React.js, Chart.js, D3.js
+
 Backend: Node.js, Express.js
+
 Database: PostgreSQL
+
 Authentication: OAuth 2.0, JWT
+
 Compliance Tools: Integration with GDPR compliance libraries and frameworks
 Installation
+
 To set up the dashboard locally, follow these steps:
 
 Clone the repository:
