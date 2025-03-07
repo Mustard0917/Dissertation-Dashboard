@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GDPR Dashboard</title>
+
+        <!-- Font Style Link -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- The Icons Link-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        <!-- Linking the CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="grid-container">
+
+            <!-- Header --> 
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                </div>
+
+            </header>
+            <!-- End Header -->
+                
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">account_circle</span> ACCOUNT
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item active" data-page="overview">
+                        <span class="material-icons-outlined">dashboard</span> Overview
+                    </li>
+                    <li class="sidebar-list-item" data-page="training">
+                        <span class="material-icons-outlined">school</span> Training 
+                    </li>
+                    <li class="sidebar-list-item" data-page="report">
+                        <span class="material-icons-outlined">report</span> Report Incidents
+                    </li>
+                    <li class="sidebar-list-item" data-page="user-data-requests">
+                        <span class="material-icons-outlined">person</span> User Data Requests
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar-->
+
+            <!-- Main Content -->
+            <main class="main-container" id="main-content">
+                <!-- Content will be dynamically loaded here -->
+                <div class="main-title">
+                </div>
+                <div class="main-cards">
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>GDPR Risk Reported:</h3>
+                        </div>
+                        <div id="pie-chart"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Common Risks:</h3>
+                        </div>
+                        <div id="bar-chart"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Incident Trends:</h3>
+                        </div>
+                        <div id="line-chart"></div>
+                    </div>
+                </div>
+                <div class="additional-cards">
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Upcoming Deadlines:</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="deadline-item">
+                                <input type="checkbox" id="dpia-deadline" onclick="markAsComplete('dpia-deadline')">
+                                <label for="dpia-deadline">DPIA due 15/06/25</label>
+                                <span class="countdown" id="countdown-dpia"></span>
+                            </div>
+                            <div class="deadline-item">
+                                <input type="checkbox" id="policy-review-deadline" onclick="markAsComplete('policy-review-deadline')">
+                                <label for="policy-review-deadline">Policy review due 01/07/25</label>
+                                <span class="countdown" id="countdown-policy-review"></span>
+                            </div>
+                            <div class="deadline-item">
+                                <input type="checkbox" id="training-session-deadline" onclick="markAsComplete('training-session-deadline')">
+                                <label for="training-session-deadline">Training session due 10/08/25</label>
+                                <span class="countdown" id="countdown-training-session"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Compliance Status Overview:</h3>
+                        </div>
+                        <div id="compliance-chart"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Overall Training Progress:</h3>
+                        </div>
+                        <div id="training-progress-chart"></div>
+                    </div>
+                </div>
+            </main>
+            <!-- End Main Content -->
+
+        </div>
+
+        <!-- Scripts -->
+        <!-- Apexcharts-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.3.0/apexcharts.min.js"></script>
+
+        <!-- Linking the Java Script -->
+        <script src="js/scripts.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                renderCharts();
+                renderComplianceChart();
+                renderTrainingProgressChart();
+                initializeCountdowns();
+            });
+        </script>
+    </body>
+</html>

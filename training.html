@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GDPR Training</title>
+
+        <!-- Font Style Link -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- The Icons Link-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        <!-- Linking the CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="grid-container">
+
+            <!-- Header --> 
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                </div>
+            </header>
+            <!-- End Header -->
+                
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">account_circle</span> ACCOUNT
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item" data-page="overview">
+                        <span class="material-icons-outlined">dashboard</span> Overview
+                    </li>
+                    <li class="sidebar-list-item active" data-page="training">
+                        <span class="material-icons-outlined">school</span> Training 
+                    </li>
+                    <li class="sidebar-list-item" data-page="report">
+                        <span class="material-icons-outlined">report</span> Report Incidents
+                    </li>
+                    <li class="sidebar-list-item" data-page="user-data-requests">
+                        <span class="material-icons-outlined">person</span> User Data Requests
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar-->
+
+            <!-- Main Content -->
+            <main class="main-container">
+                <div class="training-content">
+                    <div class="course-card" onclick="openModal('course1')">
+                        <h3>GDPR Basics</h3>
+                        <p>Learn the fundamentals of GDPR.</p>
+                    </div>
+                    <div class="course-card" onclick="openModal('course2')">
+                        <h3>Data Protection Principles</h3>
+                        <p>Understand the key principles of data protection.</p>
+                    </div>
+                    <div class="course-card" onclick="openModal('course3')">
+                        <h3>Data Subject Rights</h3>
+                        <p>Learn about the rights of data subjects under GDPR.</p>
+                    </div>
+                </div>
+
+                <div id="course1" class="modal">
+                    <button class="close-btn" onclick="closeModal('course1')">&times;</button>
+                    <div id="start-container-course1">
+                        <h2 class="quiz-title">GDPR Basics Quiz</h2>
+                        <button id="start-button" onclick="startQuiz('course1')">Start Quiz</button>
+                    </div>
+                    <div id="question-container-course1" style="display: none;">
+                        <p id="question-course1" class="question-text"></p>
+                        <button id="answer1-course1" class="quiz-button" onclick="submitAnswer('course1', 0)"></button>
+                        <button id="answer2-course1" class="quiz-button" onclick="submitAnswer('course1', 1)"></button>
+                        <button id="answer3-course1" class="quiz-button" onclick="submitAnswer('course1', 2)"></button>
+                        <button id="answer4-course1" class="quiz-button" onclick="submitAnswer('course1', 3)"></button>
+                    </div>
+                    <div id="result-course1" class="quiz-box">
+                        <p id="result-text-course1"></p>
+                        <button id="restart-button-course1" onclick="restartQuiz('course1')" style="display: none;">Restart Quiz</button>
+                    </div>
+                </div>
+
+                <div id="course2" class="modal">
+                    <button class="close-btn" onclick="closeModal('course2')">&times;</button>
+                    <div id="start-container-course2">
+                        <h2 class="quiz-title">Data Protection Principles Quiz</h2>
+                        <button id="start-button" onclick="startQuiz('course2')">Start Quiz</button>
+                    </div>
+                    <div id="question-container-course2" style="display: none;">
+                        <p id="question-course2" class="question-text"></p>
+                        <button id="answer1-course2" class="quiz-button" onclick="submitAnswer('course2', 0)"></button>
+                        <button id="answer2-course2" class="quiz-button" onclick="submitAnswer('course2', 1)"></button>
+                        <button id="answer3-course2" class="quiz-button" onclick="submitAnswer('course2', 2)"></button>
+                        <button id="answer4-course2" class="quiz-button" onclick="submitAnswer('course2', 3)"></button>
+                    </div>
+                    <div id="result-course2" class="quiz-box">
+                        <p id="result-text-course2"></p>
+                        <button id="restart-button-course2" onclick="restartQuiz('course2')" style="display: none;">Restart Quiz</button>
+                    </div>
+                </div>
+
+                <div id="course3" class="modal">
+                    <button class="close-btn" onclick="closeModal('course3')">&times;</button>
+                    <div id="start-container-course3">
+                        <h2 class="quiz-title">Data Subject Rights Quiz</h2>
+                        <button id="start-button" onclick="startQuiz('course3')">Start Quiz</button>
+                    </div>
+                    <div id="question-container-course3" style="display: none;">
+                        <p id="question-course3" class="question-text"></p>
+                        <button id="answer1-course3" class="quiz-button" onclick="submitAnswer('course3', 0)"></button>
+                        <button id="answer2-course3" class="quiz-button" onclick="submitAnswer('course3', 1)"></button>
+                        <button id="answer3-course3" class="quiz-button" onclick="submitAnswer('course3', 2)"></button>
+                        <button id="answer4-course3" class="quiz-button" onclick="submitAnswer('course3', 3)"></button>
+                    </div>
+                    <div id="result-course3" class="quiz-box">
+                        <p id="result-text-course3"></p>
+                        <button id="restart-button-course3" onclick="restartQuiz('course3')" style="display: none;">Restart Quiz</button>
+                    </div>
+                </div>
+
+                <div class="card-row">
+                    <div class="overall-completion-card">
+                        <h3>Overall Training Completion: </h3>
+                        <p id="overall-completion" class="completion-percentage">0%</p>
+                    </div>
+
+                    <div class="upcoming-courses-card">
+                        <h3>Upcoming Courses: </h3>
+                        <ul>
+                            <li>
+                                Advanced GDPR Compliance
+                                <span class="course-days">in 10 days</span>
+                            </li>
+                            <li>
+                                Data Breach Management
+                                <span class="course-days">in 15 days</span>
+                            </li>
+                            <li>
+                                Privacy by Design
+                                <span class="course-days">in 20 days</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="leaderboard-card">
+                        <h3> Staff Leaderboard: </h3>
+                        <ul>
+                            <li>
+                                Sam Johnes 
+                                <span class="score">95%</span>
+                            </li>
+                            <li>
+                                Harry Smith
+                                <span class="score">90%</span>
+                            </li>
+                            <li>
+                                Mohammed Mahmood
+                                <span class="score">85%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+            <!-- End Main Content -->
+
+        </div>
+
+        <!-- Scripts -->
+        <!-- Linking the Java Script -->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

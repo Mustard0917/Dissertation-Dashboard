@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report Incidents</title>
+
+        <!-- Font Style Link -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- The Icons Link-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        <!-- Linking the CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+        
+    </head>
+    <body>
+        <div class="grid-container">
+
+            <!-- Header --> 
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                </div>
+
+            </header>
+            <!-- End Header -->
+                
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">account_circle</span> ACCOUNT
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item" data-page="overview">
+                        <span class="material-icons-outlined">dashboard</span> Overview
+                    </li>
+                    <li class="sidebar-list-item" data-page="training">
+                        <span class="material-icons-outlined">school</span> Training 
+                    </li>
+                    <li class="sidebar-list-item active" data-page="report">
+                        <span class="material-icons-outlined">report</span> Report Incidents
+                    </li>
+                    <li class="sidebar-list-item" data-page="user-data-requests">
+                        <span class="material-icons-outlined">person</span> User Data Requests
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar-->
+
+            <!-- Main Content -->
+            <main class="main-container">
+                <div class="content-container">
+                    <div class="report-content">
+                        <h2>Report an Incident:</h2>
+                        <form id="report-form">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="incident">Incident Description:</label>
+                                <textarea id="incident" name="incident" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date of Incident:</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="risk">Risk Level:</label>
+                                <select id="risk" name="risk" required>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sensitive-data">Sensitive Data Exposed:</label>
+                                <textarea id="sensitive-data" name="sensitive-data" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="device-stolen">Was a work device stolen?</label>
+                                <select id="device-stolen" name="device-stolen" required>
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                            <button type="submit">Submit Report</button>
+                        </form>
+                        <div id="notification" class="notification">
+                            Report submitted successfully! Your report will be seen to as soon as possible.
+                            <button class="close-btn">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="small-cards">
+                        <div class="small-card">
+                            <h3>Average Wait Time:</h3>
+                            <p>24 hrs</p>
+                        </div>
+                        <div class="small-card">
+                            <h3>Reported Incidents:</h3>
+                            <p>120</p>
+                        </div>
+                        <div class="small-card">
+                            <h3>Risk Prevented Score:</h3>
+                            <p>85%</p>
+                        </div>
+                        <div class="small-card">
+                            <h3>Resolved Incidents:</h3>
+                            <p>98</p>
+                        </div>
+                        <div class="small-card">
+                            <h3>Pending Incidents:</h3>
+                            <p>22</p>
+                        </div>
+                        <div class="small-card">
+                            <h3>High Risk Incidents:</h3>
+                            <p>30%</p>
+                        </div>
+                    </div>
+
+                    <div class="card-column">
+                        <!-- Incident Statistics Card -->
+                        <div class="card">
+                            <div class="card-inner">
+                                <h3>Recent Incident Statistics:</h3>
+                            </div>
+                            <div class="card-content">
+                                <div id="incident-statistics-chart"></div>
+                            </div>
+                        </div>
+
+                        <!-- Incident Types and Risk Levels Table -->
+                        <div class="card">
+                            <div class="card-inner">
+                                <h3>Incident Types and Risk Levels:</h3>
+                            </div>
+                            <div class="card-content">
+                                <table id="incident-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Incident Type</th>
+                                            <th>Risk Level</th>
+                                            <th>Damage %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="high-risk">
+                                            <td>Malware</td>
+                                            <td>High</td>
+                                            <td>80%</td>
+                                        </tr>
+                                        <tr class="medium-risk">
+                                            <td>Phishing</td>
+                                            <td>Medium</td>
+                                            <td>60%</td>
+                                        </tr>
+                                        <tr class="high-risk">
+                                            <td>Data Breach</td>
+                                            <td>High</td>
+                                            <td>90%</td>
+                                        </tr>
+                                        <tr class="high-risk">
+                                            <td>Man-in-the-Middle</td>
+                                            <td>High</td>
+                                            <td>85%</td>
+                                        </tr>
+                                        <tr class="medium-risk">
+                                            <td>Spoofing</td>
+                                            <td>Medium</td>
+                                            <td>70%</td>
+                                        </tr>
+                                        <tr class="low-risk">
+                                            <td>DDOS</td>
+                                            <td>Low</td>
+                                            <td>50%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- End Main Content -->
+
+        </div>
+
+        <!-- Scripts -->
+        <!-- Linking the Java Script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.3.0/apexcharts.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                renderIncidentStatisticsChart();
+            });
+        </script>
+    </body>
+</html>

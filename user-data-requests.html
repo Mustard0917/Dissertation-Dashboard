@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Data Requests</title>
+
+        <!-- Font Style Link -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- The Icons Link-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        <!-- Linking the CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="grid-container">
+
+            <!-- Header --> 
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                </div>
+            </header>
+            <!-- End Header -->
+                
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">account_circle</span> ACCOUNT
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item" data-page="overview">
+                        <span class="material-icons-outlined">dashboard</span> Overview
+                    </li>
+                    <li class="sidebar-list-item" data-page="training">
+                        <span class="material-icons-outlined">school</span> Training 
+                    </li>
+                    <li class="sidebar-list-item" data-page="report">
+                        <span class="material-icons-outlined">report</span> Report Incidents
+                    </li>
+                    <li class="sidebar-list-item active" data-page="user-data-requests">
+                        <span class="material-icons-outlined">person</span> User Data Requests
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Sidebar-->
+
+            <!-- Main Content -->
+            <main class="main-container">
+
+                <div class="content-container">
+                    <div class="request-forms">
+                        <div class="form-group">
+                            <select id="form-select" onchange="showForm()">
+                                <option value="delete-data-form">Delete Data</option>
+                                <option value="access-data-form">Access Data</option>
+                                <option value="data-portability-form">Data Portability</option>
+                            </select>
+                        </div>
+
+                        <div id="delete-data-form" class="request-form">
+                            <h3>Delete Data</h3>
+                            <form id="delete-data-form-submit">
+                                <div class="form-group">
+                                    <label for="name-delete">Name:</label>
+                                    <input type="text" id="name-delete" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-delete">Email:</label>
+                                    <input type="email" id="email-delete" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="details-delete">Reason for Deletion:</label>
+                                    <textarea id="details-delete" name="details" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-type-delete">Type of Data to be Deleted:</label>
+                                    <input type="text" id="data-type-delete" name="data-type" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-usage-delete">How was this data used?</label>
+                                    <textarea id="data-usage-delete" name="data-usage" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-storage-delete">Where was this data stored?</label>
+                                    <input type="text" id="data-storage-delete" name="data-storage" required>
+                                </div>
+                                <button type="submit">Submit Request</button>
+                            </form>
+                        </div>
+
+                        <div id="access-data-form" class="request-form" style="display: none;">
+                            <h3>Access Data</h3>
+                            <form id="access-data-form-submit">
+                                <div class="form-group">
+                                    <label for="name-access">Name:</label>
+                                    <input type="text" id="name-access" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-access">Email:</label>
+                                    <input type="email" id="email-access" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="details-access">Data Requested:</label>
+                                    <textarea id="details-access" name="details" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-reason-access">Reason for Access:</label>
+                                    <textarea id="data-reason-access" name="data-reason" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-storage-access">Where will this data be stored?</label>
+                                    <input type="text" id="data-storage-access" name="data-storage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-usage-access">How will you use this data?</label>
+                                    <textarea id="data-usage-access" name="data-usage" rows="3" required></textarea>
+                                </div>
+                                <button type="submit">Submit Request</button>
+                            </form>
+                        </div>
+
+                        <div id="data-portability-form" class="request-form" style="display: none;">
+                            <h3>Data Portability</h3>
+                            <form id="data-portability-form-submit">
+                                <div class="form-group">
+                                    <label for="name-portability">Name:</label>
+                                    <input type="text" id="name-portability" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-portability">Email:</label>
+                                    <input type="email" id="email-portability" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="details-portability">Data to be Transferred:</label>
+                                    <textarea id="details-portability" name="details" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-reason-portability">Reason for Transfer:</label>
+                                    <textarea id="data-reason-portability" name="data-reason" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-storage-portability">Where will this data be stored?</label>
+                                    <input type="text" id="data-storage-portability" name="data-storage" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-usage-portability">How will you use this data?</label>
+                                    <textarea id="data-usage-portability" name="data-usage" rows="3" required></textarea>
+                                </div>
+                                <button type="submit">Submit Request</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="live-requests">
+                        <h3>Live Requests</h3>
+                        <div id="live-requests-container">
+                            <!-- Live requests will be appended here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="notification" class="notification">
+                    Request submitted successfully! Your request will be processed as soon as possible.
+                    <button class="close-btn">&times;</button>
+                </div>
+            </main>
+            <!-- End Main Content -->
+
+        </div>
+
+        <!-- Scripts -->
+        <!-- Linking the Java Script -->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
